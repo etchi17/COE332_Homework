@@ -5,15 +5,19 @@ In this project, were given a data set containing the qualities and properties o
 #### Downloading Water Quality Data Set
 
 The first step is to make sure the water quality data set, containing the turbidity data, is downloaded. To do so, simply use the wget command by entering:
+
     wget https://raw.githubusercontent.com/wjallen/turbidity/main/turbidity_data.json
+
 Alternatively, the data set can also be acquired by pasting the above link in a web browser and copying and pasting the contents into user created JSON file.
 
 #### analyze_water_turb.py
 
 This is the first script that should be run after downloading the data set that takes the five most recent water samples, calculates the turbidity of the water, and calculates the time it takes for the water to reach a safe threshold. The script contains the function calc_turb which takes in a list of dictionaries(the water quality data set) and the two keys from that list of dictionaries(calibration_constant and detector_current). The function then creates a new list containing the five most recent dictionaries from the list of dictionaries inputted and calculates the average turbidity of those water samples. The script also contains the function calc_min_time which calculates how long it should take for an inputted turbidity to reach a safe turbidity in a specific decay factor. The script takes in a safe turbidity value, the current turbidity value, and decay factor and solves for the time. The overall script takes the water quality data set and calculates the average turbidity using calc_turb. Once acquired, it takes the average turbidity calculated and compared it to the safe turbidity threshold of 1 and outputs a log displaying either a warning or info if it's above or below the threshold, respectively. It then uses that turbidity and calculates how long it takes to reach a safe turbidity threshold of 1 at a decay factor of 0.02 using calc_min_time. It then outputs all of that data at once as so:
+
     Average turbidity based on most recent five measurements = 1.1497522 NTU
     WARNING:root:Turbidity is above threshold for safe use
     Minimum time required to return below a safe threshold = 6.907313891267473 hours
+
 displaying the average turbidity calculated, the logging message, and time needed to reach the safe threshold.
 
 #### test_analyze_water_turb.py

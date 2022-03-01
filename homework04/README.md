@@ -5,20 +5,33 @@ In this project, we are given a data set containing the properties of various me
 #### Run Instructions
 
 To use these files, the first step would be to download these files and get a Docker image. To get a Docker image, you can pull my existing Docker image from Docker Hub by executing the command:
+
     docker pull etchi17/ml_data_analysis:hw04
+
  If you would like to build your own Docker image instead, you would execute the command:
+
     docker build -t username/ml_data_analysis:1.0 .
+
  replacing "username" with your Docker Hub username. Now that you have the Docker image, you can run the code by executing the command:
-    docker run --rm -v $PWD:/data username/ml_data_analysis:1.0 ml_data_analysis.py /data/Meteorite_Landings.jsonto run the containerized code against the sample data inside the container. To run the code against a user provided data, you can first run this command:
+
+    docker run --rm -v $PWD:/data username/ml_data_analysis:1.0 ml_data_analysis.py /data/Meteorite_Landings.json
+
+to run the containerized code against the sample data inside the container. To run the code against a user provided data, you can first run this command:
+
     wget https://raw.githubusercontent.com/wjallen/coe332-sample-data/main/ML_Data_Sample.json
+
 to download the data to the directory, replacing the link with a link to your sample data. Once downloaded, build your own Docker image following the instructions listed above so that the new data set is included. You can then run the code again, replacing the name of the data file as so:
+
     docker run --rm -v $PWD:/data username/ml_data_analysis:1.0 ml_data_analysis.py /data/ML_Data_Sample.json
+
 Finally, to test everything with pytest, you can go inside the container by running the commands:
+
     docker run --rm -it -v $PWD:/data username/ml_data_analysis:1.0 /bin/bash
     cd /data
     pytest
 
 NOTE: the expected input data should be in the form of a json file containing a dictionary with a list of dictionaries. The data inside should look something like:
+
     {
       "meteorite_landings": [
         {
@@ -40,11 +53,13 @@ NOTE: the expected input data should be in the form of a json file containing a 
           "GeoLocation": "(-9.4378, 49.5751)"
         },
         ....
+
 Additionally, more Meteorite Landing data can be found in this link https://raw.githubusercontent.com/wjallen/coe332-sample-data/main/ML_Data_Sample.json and can be downloaded following the instructions above.
 
 #### ml_data_analysis.py
 
 This script contains all of the functions and code used to analyze the meteorite landing data (Meteorite_Landings.json). It takes the data contained within the list of dictionaries, specifically analyzing the mass, longitude, latitude, and class keys, to output the average mass of all meteorites in the data, the number of meteorites that landed in each hemisphere, and the number of meteorites of each class. It does this using 3 functions. The first function, ``compute_average_mass()``, which takes all the values under the "mass (g)" key of each dictionary in the list and computes the average of those values. The second function, ``check_hemisphere()``, takes the longitude and latitude keys of each dictionary in the list and determines whether the meteorite landed in the Norther or Southern Hemisphere, and then whether it landed in the Eastern or Western Hemisphere, and outputs the result of both. Finally, the ``count_classes()`` function takes the "class" key of each dictionary in the list and counts how many of each class are present in it, outputing a dictionary containing the class as a key and the count as the value. The expected output should look something like:
+
     Summary data following meteorite analysis:
     
     Average mass of 30 meteors:

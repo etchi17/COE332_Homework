@@ -4,3 +4,7 @@ In this project, we are given one data set containing a multitude of meteorite l
 
 ## Downloading Data Set
 
+Before we can start utilizing these methods, we need to first download the meteorite landing site data that we're going to be working with. In order to do that, simply run the following command in your command line terminal:
+```
+wget https://raw.githubusercontent.com/wjallen/coe332-sample-data/main/ML_Data_Sample.json
+```

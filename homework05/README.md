@@ -24,3 +24,31 @@ Once that is done, we can finally launch our containerized Redis database server
 docker run -d -p <redis-port#>:6379 -v $(pwd)/data:/data:rw --name=<your-name>-redis redis:6 --save 1 1
 ```
 NOTE: Be sure to replace `<redis-port#>` with your own/assigned redis port and `<your-name>` with your name.
+
+You can check if it is up and running with `docker ps -a`, which should output a table of the format displayed below.
+```
+CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS             PORTS                                                         NAMES
+(Container ID) redis:6    "docker-entrypoint.s…"   (time created)  Up (time created)  0.0.0.0:<redis-port#>->6379/tcp, :::<redis-port#>->6379/tcp   "container-name"
+```
+You should see your container with the name you gave it on the table generated with the STATUS as Up and the port you assigned it.
+
+If any of the above is not found, you can try to debug it using: 
+```
+docker logs "container-name"
+```
+
+## Pull/Build/Launch Flask Application
+
+In order to use the Flask application, we first start off by pulling it from Dockerhub using the following command:
+```
+docker pull <username>/<code>:<version>
+```
+- To specifically pull mine, replace `<username>/<code>:<version>` with `etchi17/flask-ml-data-sample:hw5`
+
+```
+docker build -t etchi17/flask-ml-data-sample:hw5 .
+```
+```
+docker run --name "etchi17-hw5" -d -p 5007:5000 etchi17/flask-ml-data-sample:hw5
+```
+```

@@ -39,16 +39,61 @@ docker logs "container-name"
 
 ## Pull/Build/Launch Flask Application
 
-In order to use the Flask application, we first start off by pulling it from Dockerhub using the following command:
-```
-docker pull <username>/<code>:<version>
-```
-- To specifically pull mine, replace `<username>/<code>:<version>` with `etchi17/flask-ml-data-sample:hw5`
+1. In order to use the Flask application, we first start off by pulling it from Dockerhub using the following command:
+  ```
+  docker pull <username>/<code>:<version>
+  ```
+  - To specifically pull mine, replace `<username>/<code>:<version>` with `etchi17/flask-ml-data-sample:hw5`
 
+2. Before we can build or launch the Flask application, we're going to need to add 2 new files to our directory:
+
+	### Dockerfile:
+	- This file is already included in the repository, but if you would like to create your own...
+	- Touch a file named "Dockerfile" into your directory by executing `touch Dockerfile`
+	- Go in and edit the newly created file with a text editor of your choice (vim was used as the text editor of choice) by executing `vim Dockerfile`
+	- Once inside enter the following lines of code to complete building the Dockerfile:
+	```
+	FROM python:3.9
+
+	RUN mkdir /app
+	WORKDIR /app
+	COPY requirements.txt /app/requirements.txt
+	RUN pip install -r /app/requirements.txt
+	COPY . /app
+
+	ENTRYPOINT ["python"]
+	CMD ["app.py"]
+	```
+
+	### requirements.txt:
+	- Touch a file named "requirements.txt" into your directory by inputting `touch requirements.txt`
+	- Open the newly created file with a text editor with `vim requirements.txt`
+	- Add the following lines of code and exit out of the file:
+    ```
+    Flask==2.0.3
+    redis==4.2.1
+    ```
+  
+3. Once those files have been added to your directory, you can build the container by running the following command:
+	```
+	docker build -t <username>/<code>:<version> .
+	```
+	NOTE: Be sure to replace `<username>` with your Docker Hub username, `<code>` with the name of your code, and `<version>` with the name of your version of choice.
+
+4. Once built, you can then run and launch the docker container by executing the command:
+	```
+	docker run --name "container-name" -d -p <port#>:5000 <username>/<code>:<version>
+	```
+	NOTE: Be sure to replace `<port#>` with your own Flask port number and `"container-name"` with a name of your choice
+  
+You can check if it is up and running with `docker ps -a`, which should output a table of the format displayed below.
 ```
-docker build -t etchi17/flask-ml-data-sample:hw5 .
+CONTAINER ID   IMAGE                         COMMAND           CREATED         STATUS             PORTS                                             NAMES
+(Container ID) <username>/<code>:<version>   "python app.py"   (time created)  Up (time created)  0.0.0.0:<port#>->5000/tcp, :::<port#>->5000/tcp   "container-name"
 ```
+You should see your container with the name you gave it on the table generated with the STATUS as Up and the port you assigned it.
+
+If any of the above is not found, you can try to debug it using: 
 ```
-docker run --name "etchi17-hw5" -d -p 5007:5000 etchi17/flask-ml-data-sample:hw5
-```
+docker logs "container-name"
 ```

@@ -126,3 +126,35 @@ Simply executing this command retrieves and outputs all of the data stored in th
 ```
 curl localhost:<post#>/data?start=<start-parameter>
 ```
+NOTE: Be sure to replace `<start-parameter>` with the value of your choice
+Keep in mind that for this specific set of data, only numeric start parameters between 10001 and 10300 are accepted. Any other input will cause the route to return a string detailing the acceptable start parameters as shown below:
+```
+Invalid start value; start must be numeric (between 10001 and 10300, inclusive).
+```
+
+## Description of Data
+
+The data that we have been working with all this time is meteorite landing site data. The following is an entry contained within the sample data:
+  ```
+  ...
+    {
+    "name": "Jennifer",
+    "id": "10299",
+    "recclass": "L5",
+    "mass (g)": "539",
+    "reclat": "-84.0579",
+    "reclong": "69.9994",
+    "GeoLocation": "(-84.0579, 69.9994)"
+  },
+  {
+    "name": "Christina",
+    "id": "10300",
+    "recclass": "H5",
+    "mass (g)": "4291",
+    "reclat": "-38.1533",
+    "reclong": "-46.7127",
+    "GeoLocation": "(-38.1533, -46.7127)"
+  }
+  ```
+  
+As shown here, each entry (one for each id and meteorite) in the dataset contains the name of the person that discovered and analyzed the meteorite, the id number of the meteorite site, the classification of the meteorite, the mass of the meteorite, the latitudinal and longitudinal location of the meteorite, and the geolocation of the meteorite. All of this data is contained in one dictionary. The dataset we're working with includes 300 of these entries all within a list. That list is a value in the singular key:value pair in the dictionary that is this data set.

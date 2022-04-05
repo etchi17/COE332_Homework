@@ -127,6 +127,7 @@ Simply executing this command retrieves and outputs all of the data stored in th
 curl localhost:<post#>/data?start=<start-parameter>
 ```
 NOTE: Be sure to replace `<start-parameter>` with the value of your choice
+
 Keep in mind that for this specific set of data, only numeric start parameters between 10001 and 10300 are accepted. Any other input will cause the route to return a string detailing the acceptable start parameters as shown below:
 ```
 Invalid start value; start must be numeric (between 10001 and 10300, inclusive).

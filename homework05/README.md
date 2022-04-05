@@ -37,6 +37,11 @@ If any of the above is not found, you can try to debug it using:
 docker logs "container-name"
 ```
 
+If you decide to use your own redis-port, be sure to follow the following instructions to connect your Redis database server to your Flask application:
+- Run `docker inspect <container ID> | grep IPAddress` to find the IP (e.g. 172.xx.x.x)
+- Replace the redis client in the Flask app as: `redis.Redis(host='172.xx.x.x', port=6379)`
+- Replace `172.xx.x.x` with the actual IP you find in the first part
+
 ## Pull/Build/Launch Flask Application
 
 1. In order to use the Flask application, we first start off by pulling it from Dockerhub using the following command:
@@ -96,4 +101,17 @@ You should see your container with the name you gave it on the table generated w
 If any of the above is not found, you can try to debug it using: 
 ```
 docker logs "container-name"
+```
+
+## Using POST and GET methods in the Flask Application
+
+This Flask application only contains one route, `/data`, with two methods, `POST` and `GET`.
+### POST
+The `POST` method of this route serves to load and store the data into the Redis database server. As such, it should be the first request made, which we can do by executing the command:
+```
+curl localhost:<port#>/data -X POST
+```
+Once requested, the data from ML_Data_Sample.json should be stored in the Redis database and the following string should output, confirming the successful completion of the process:
+```
+Data has been loaded to Redis database instance
 ```

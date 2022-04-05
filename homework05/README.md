@@ -106,6 +106,7 @@ docker logs "container-name"
 ## Using POST and GET methods in the Flask Application
 
 This Flask application only contains one route, `/data`, with two methods, `POST` and `GET`.
+
 ### POST
 The `POST` method of this route serves to load and store the data into the Redis database server. As such, it should be the first request made, which we can do by executing the command:
 ```
@@ -114,4 +115,14 @@ curl localhost:<port#>/data -X POST
 Once requested, the data from ML_Data_Sample.json should be stored in the Redis database and the following string should output, confirming the successful completion of the process:
 ```
 Data has been loaded to Redis database instance
+```
+
+### GET
+The `GET` method of this route serves to retrieve the data from the Redis database and output it. The command to execute this is shown below:
+```
+curl localhost:<post#>/data
+```
+Simply executing this command retrieves and outputs all of the data stored in the Redis database. For this particular set of data, it will output 300 meteor landing sight data sets in the form of a list of 300 dictionaries. If the user wants to set a start query parameter for the data that outputs all the data starting at the parameter until the end, the following command should be run instead:
+```
+curl localhost:<post#>/data?start=<start-parameter>
 ```

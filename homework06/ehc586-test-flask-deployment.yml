@@ -20,7 +20,7 @@ spec:
             containers:
                 - name: ehc586-test-flask-deployment
                   imagePullPolicy: Always
-                  image: etchi17/k8s:hw6
+                  image: etchi17/kubs:hw6
                   command: ['python3', 'app.py']
                   ports:
                   - name: http

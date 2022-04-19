@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: redis-service-ehc586-test
+    labels:
+        username: ehc586
+        env: test
+spec:
+    type: ClusterIP
+    selector:
+        app: ehc586-test-redis
+    ports:
+    - name: ehc586-test-reddis
+      port: 6379
+      targetPort: 6379

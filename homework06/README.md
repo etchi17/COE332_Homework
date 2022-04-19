@@ -81,7 +81,7 @@ When used, we should get outputs similar to these:
   ehc586-test-redis-deployment-6947dbd669-jkzhf   1/1     Running   0             72m
   py-debug-deployment-5dfcf7bdd9-kxccr            1/1     Running   0             4h52m
   ```
--services
+- services
   ```
   NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
   ehc586-test-flask-service   ClusterIP   10.97.122.105   <none>        5000/TCP   65m
@@ -122,6 +122,21 @@ Simply executing this command retrieves and outputs all of the data stored in th
 curl <flask-service-IP>:5000/data?start=<start-parameter>
 ```
 NOTE: Be sure to replace `<start-parameter>` with the value of your choice
+
+The expected output format for the GET method for running the command are as follows:
+```  
+curl <flask-service-IP>:5000/data?start=10300
+  
+  {
+    "name": "Christina",
+    "id": "10300",
+    "recclass": "H5",
+    "mass (g)": "4291",
+    "reclat": "-38.1533",
+    "reclong": "-46.7127",
+    "GeoLocation": "(-38.1533, -46.7127)"
+  }
+  ```
 
 Keep in mind that for this specific set of data, only numeric start parameters between 10001 and 10300 are accepted. Any other input will cause the route to return a string detailing the acceptable start parameters as shown below:
 ```

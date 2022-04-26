@@ -18,8 +18,7 @@ def load_data() -> str:
     rd = redis.Redis(host='10.97.154.87', port=6379)
     for n in ml_data['meteorite_landings']:
         rd.set(n['id'], json.dumps(n))       
-    keystest = len(rd.keys())
-    return f'ETH {keystest} Data has been loaded to Redis database instance\n'
+    return f'Data has been loaded to Redis database instance\n'
 
 @app.route('/data', methods=['GET'])
 def get_data() -> str:

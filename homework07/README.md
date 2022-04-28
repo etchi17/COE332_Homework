@@ -42,7 +42,7 @@ To start, the software diagram shows two routes that a user can take. NOTE: All 
             ...
             2022-057T11:12:56.869Z
             2022-057T11:16:56.869Z
-              2022-057T11:20:56.869Z
+            2022-057T11:20:56.869Z
             2022-057T11:24:56.869Z
             2022-057T11:28:56.869Z
             2022-057T11:32:56.869Z

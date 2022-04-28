@@ -1,3 +1,5 @@
+# Intro to Python: Testing Basic Scripts
+
 Python scripts completing the following exercises:
 
 Using nested for loops and if statements, write a program that iterates over every integer from 3 to 100 (inclusive) and prints out the number only if it is a prime number.

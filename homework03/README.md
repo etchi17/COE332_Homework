@@ -1,4 +1,4 @@
-# Analyzing Water: Calculating Tubridity and Time Needed to Reach Safe Threshold
+# Analyzing Water: Calculating Turbidity and Time Needed to Reach Safe Threshold
 
 In this project, were given a data set containing the qualities and properties of water samples. We then use those properties to calculate the average turbidity of the five most recent samples. Once acquired, we calculate how long it would take for that turbidity to reach a safe threshold. These types of calculations take the calibration constant and detector current of water into account during its turbidity calculations and the decay factor during its time to reach a safe threshold calculations. It uses known equations to calculate these values, providing relatively accurate approximations. This is important as having clean water is important for a variety of reasons, including analyzing samples and personal health. As such, being able to analyze the quality of water, seeing if it is clean enough, and calculating how long it would take to be clean enough is extremely useful for those reasons above. 
 

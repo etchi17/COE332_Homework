@@ -11,28 +11,28 @@ Shown below is a software diagram depicting all the routes and returned outputs 
 To start, the software diagram shows two routes that a user can take. NOTE: All routes shown are donw following `curl localhost:5007`, ex: `curl localhost:5007/` for the first route.
 
 1. The first route is the help route, which can be executed using: `/`. This returns a string containing all routes in the Flask application, how to use them, and their expected outputs:
-```
-### ISS Sighting Location ###
+	```
+	### ISS Sighting Location ###
 
-Informational and Management Routes:
+	Informational and Management Routes:
 
-/                                                      (GET) print this information
-/read_data                                             (POST) resets data, reads and loads all data from files
+	/                                                      (GET) print this information
+	/read_data                                             (POST) resets data, reads and loads all data from files
 
-Routes for Querying Positional and Velocity Data:
+	Routes for Querying Positional and Velocity Data:
 
-/epochs                                                (GET) lists all epochs in positional and velocity data
-/epochs/<epoch>                                        (GET) lists all data associated with a specific <epoch> in positional and velocity data
+	/epochs                                                (GET) lists all epochs in positional and velocity data
+	/epochs/<epoch>                                        (GET) lists all data associated with a specific <epoch> in positional and velocity data
 
-Routes for Querying Sighting Data
+	Routes for Querying Sighting Data
 
-/countries                                             (GET) lists all countries in sighting data
-/countries/<country>                                   (GET) lists all data associated with a specific <country> in sighting data
-/countries/<country>/regions                           (GET) lists all regions in a specific <country> in sighting data
-/countries/<country>/regions/<region>                  (GET) lists all data associated with a specific <region> in a specific <country> in sighting data
-/countries/<country>/regions/<region>/cities           (GET) lists all cities in a specific <region> in a specific <country> in sighting data
-/countries/<country>/regions/<region>/cities/<city>    (GET) lists all data associated with a specific <city> in a specific <region> in a specific <country> in sighting data
-```
+	/countries                                             (GET) lists all countries in sighting data
+	/countries/<country>                                   (GET) lists all data associated with a specific <country> in sighting data
+	/countries/<country>/regions                           (GET) lists all regions in a specific <country> in sighting data
+	/countries/<country>/regions/<region>                  (GET) lists all data associated with a specific <region> in a specific <country> in sighting data
+	/countries/<country>/regions/<region>/cities           (GET) lists all cities in a specific <region> in a specific <country> in sighting data
+	/countries/<country>/regions/<region>/cities/<city>    (GET) lists all data associated with a specific <city> in a specific <region> in a specific <country> in sighting data
+	```
 
 2. The second route is the data reading and storing route, which can be done with: `/read_data -X POST`. Taking this route allows the user to successfully use the other data querying routes in the application as it reads and stores all of the positional, velocity, and sighting data that the data querying routes use. Following this route are the two data sets that get read and stored:
     1. The `ISS Positional and Velocity Data` set

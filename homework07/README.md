@@ -1,10 +1,10 @@
 # Software Diagram for Querying Data on ISS
 
-In this project, we were tasked with creating a software diagram for one of our previous projects: ![ISS-Sighting-Location](https://github.com/etchi17/ISS-Sighting-Location). Our goal is to show off an interesting aspect of this project and explain it through simple text and an easily understandable visual. With the evergrowing complexity of certain processes, products, and applications used in our modern world, having a visual to aid in our understanding of it helps immensely. It can help clear potential misunderstandings and help guide newcomers through the basics of it in an organized fashion. As such, this project aims to do just that, albeit in a much simpler scale.
+In this project, we were tasked with creating a software diagram for one of our previous projects: [ISS-Sighting-Location](https://github.com/etchi17/ISS-Sighting-Location). Our goal is to show off an interesting aspect of this project and explain it through simple text and an easily understandable visual. With the evergrowing complexity of certain processes, products, and applications used in our modern world, having a visual to aid in our understanding of it helps immensely. It can help clear potential misunderstandings and help guide newcomers through the basics of it in an organized fashion. As such, this project aims to do just that, albeit in a much simpler scale.
 
 ## Software Diagram Description
 
-Shown below is a software diagram depicting all the routes and returned outputs present in the ![ISS-Sighting-Location](https://github.com/etchi17/ISS-Sighting-Location) project. It demonstrates the actions, commands, and path a user would have to take in order to receive a specifc output, detailing everything a user would need to know in order to fully use the Flask API once set up. 
+Shown below is a software diagram depicting all the routes and returned outputs present in the [ISS-Sighting-Location](https://github.com/etchi17/ISS-Sighting-Location) project. It demonstrates the actions, commands, and path a user would have to take in order to receive a specifc output, detailing everything a user would need to know in order to fully use the Flask API once set up. 
 
 ![](https://github.com/etchi17/COE332_homework/blob/e9f1118521f8e774290277ea630fb73499b61b3a/homework07/Software_Diagram.png)
 

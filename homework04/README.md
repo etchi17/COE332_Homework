@@ -1,8 +1,8 @@
-### Finalizing and Containerizing Meteorite Landing Analysis into Docker Hub
+# Finalizing and Containerizing Meteorite Landing Analysis into Docker Hub
 
 In this project, we are given a data set containing the properties of various meteorite landings and aim to analyze the average mass of the meteors, the hemisphere they were found in, and their class. We have finished writing the functions and code to do all of this and organized the output for readability. We also made a unit test to test all of the functions used in the project. All of this allows us to analyze the types of meteors present and see if there are any noticeable patterns we can discern based on what we gather from this sample. It organizes all the gathered information and presents it all in an tidy manner to ease interpretations of it. The unit tests check that all of the functions are working correctly and minimize error.
 
-#### Run Instructions
+# Run Instructions
 
 To use these files, the first step would be to download these files and get a Docker image. To get a Docker image, you can pull my existing Docker image from Docker Hub by executing the command:
 
@@ -56,7 +56,7 @@ NOTE: the expected input data should be in the form of a json file containing a 
 
 Additionally, more Meteorite Landing data can be found in this link https://raw.githubusercontent.com/wjallen/coe332-sample-data/main/ML_Data_Sample.json and can be downloaded following the instructions above.
 
-#### ml_data_analysis.py
+# ml_data_analysis.py
 
 This script contains all of the functions and code used to analyze the meteorite landing data (Meteorite_Landings.json). It takes the data contained within the list of dictionaries, specifically analyzing the mass, longitude, latitude, and class keys, to output the average mass of all meteorites in the data, the number of meteorites that landed in each hemisphere, and the number of meteorites of each class. It does this using 3 functions. The first function, ``compute_average_mass()``, which takes all the values under the "mass (g)" key of each dictionary in the list and computes the average of those values. The second function, ``check_hemisphere()``, takes the longitude and latitude keys of each dictionary in the list and determines whether the meteorite landed in the Norther or Southern Hemisphere, and then whether it landed in the Eastern or Western Hemisphere, and outputs the result of both. Finally, the ``count_classes()`` function takes the "recclass" key of each dictionary in the list and counts how many of each class are present in it, outputing a dictionary containing the class as a key and the count as the value. The expected output should look something like:
 
@@ -92,8 +92,6 @@ This script contains all of the functions and code used to analyze the meteorite
     The Eucrite-mmict class was found 1 times
     The CV3 class was found 1 times
     
-#### test_ml_data_analysis.py
+# test_ml_data_analysis.py
 
 This script contains the unit tests for the previous script, ``ml_data_analysis.py``, and is used to test the functions for it. It tests to make sure the functions ``compute_average_mass()``, ``check_hemisphere()``, and ``count_classes()`` are arithmetically correct and output the correct values and data types. It also checks that there is an error when there should be an error. When running this script with pytest, all tests should pass.
-
-####
